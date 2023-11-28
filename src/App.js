@@ -8,10 +8,20 @@ import { useWeb } from "./context/WebContext.js";
 
 function App() {
   const { recipes, expenses } = useWeb();
+  const recipesTotal = recipes.reduce(
+    (acc, recipe) => acc + parseFloat(recipe.value),
+    0
+  );
+  const expensesTotal = expenses.reduce(
+    (acc, expense) => acc + parseFloat(expense.value),
+    0
+  );
 
   return (
     <div className="App">
       <MainContainer>
+
+
         <RegisterForm />
         <Expenses expenses={expenses} />
         <Recipes recipes={recipes} />

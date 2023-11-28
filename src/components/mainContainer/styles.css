@@ -14,3 +14,12 @@
   padding: 24px;
   flex-wrap: wrap;
 }
+.container {
+  display: flex;
+  gap: 30px;
+  height: 80%;
+}
+
+.header {
+  height: 20%;
+}
