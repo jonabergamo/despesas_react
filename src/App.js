@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Expenses from "./components/expenses/Expenses.jsx";
+import MainContainer from "./components/mainContainer/Container";
+import Recipes from "./components/recipe/Recipes.jsx";
+import RegisterForm from "./components/registerForm/RegisterForm";
+import { useWeb } from "./context/WebContext.js";
 
 function App() {
+  const { recipes, expenses } = useWeb();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MainContainer>
+        <RegisterForm />
+        <Expenses expenses={expenses} />
+        <Recipes recipes={recipes} />
+      </MainContainer>
     </div>
   );
 }
